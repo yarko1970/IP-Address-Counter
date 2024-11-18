@@ -87,6 +87,15 @@ func uniqueIpCount(filename string) int {
 	defer file.Close()
 
 	ipRegistry := [256][256][256][4]int64{}
+	for i0 := 0; i0 < 256; i0++ {
+		for i1 := 0; i1 < 256; i1++ {
+			for i2 := 0; i2 < 256; i2++ {
+				for j := 0; j < 4; j++ {
+					ipRegistry[i0][i1][i2][j] = 0
+				}
+			}
+		}
+	}
 
 	scanner := bufio.NewScanner(file)
 
