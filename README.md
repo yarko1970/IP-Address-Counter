@@ -5,7 +5,7 @@ Golang-based solution for counting uniques IP address records in a large file
 
 The purpose of the code in this repo is to solve the following problem:
 
-There is a simple text file containing IPv4 addresses, each line of the file represents an IPv4 address. The task is to build a program in GO language that calculates how many unique IP addresses are in this file. The task includes a sample large file (~114 GB) that needs to be properly handled by the progam.
+There is a simple text file containing IPv4 addresses, each line of the file represents an IPv4 address. The task is to build a program in Go language that calculates how many unique IP addresses are in this file. The task includes a sample large file (~114 GB) that needs to be properly handled by the program.
 
 The solution was tested on MacBook Pro 2021 with 10 processor cores.
 
@@ -60,7 +60,7 @@ Instead of line-by line processing, we could do so in batches. This is how the a
 5. Entire batch processing can also be executed concurrently with the scanner continuing building the next batch
 6. The process is repeated from step 2 until entire file has been scanned.
 
-<b>2. Implementation</b>
+<b>3. Implementation</b>
 
 The solution to the problem is based upon the approach discussed above. It is presented in this repo as "ip_address_counter.go" file and can be run in the following way:
 go run ip_address_counter.go fileName
