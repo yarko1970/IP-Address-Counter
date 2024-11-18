@@ -38,13 +38,27 @@ func numOnesInInt64(n int64) int {
 	return count
 }
 
+// checking if number is between 0 and 255
+func inRange(n int) bool {
+	if (n >= 0) && (n <= 255) {
+		return true
+	}
+	return false
+}
+
 // processing single line
 func lineProcessor(line string, ipRegistry *[256][256][256][4]int64) {
 	result := strings.Split(line, ".")
-	i0, _ := strconv.Atoi(result[0])
-	i1, _ := strconv.Atoi(result[1])
-	i2, _ := strconv.Atoi(result[2])
-	i3, _ := strconv.Atoi(result[3])
+	i0, err0 := strconv.Atoi(result[0])
+	i1, err1 := strconv.Atoi(result[1])
+	i2, err2 := strconv.Atoi(result[2])
+	i3, err3 := strconv.Atoi(result[3])
+	if err0 != nil || err1 != nil || err2 != nil || err3 != nil {
+		return
+	}
+	if !inRange(i0) || !inRange(i1) || !inRange(i2) || !inRange(i3) {
+		return
+	}
 	groupIndex, mask := bitMask(i3)
 	ipRegistry[i0][i1][i2][groupIndex] |= mask
 }
@@ -91,7 +105,10 @@ func batchProcessor(batch []string, ipRegistry *[256][256][256][4]int64) {
 // calculating the number of unique IPs
 func uniqueIpCount(filename string) int {
 
-	file, _ := os.Open(filename)
+	file, err := os.Open(filename)
+	if err != nil {
+		panic(err)
+	}
 	defer file.Close()
 
 	// creating and initializing IP registry
