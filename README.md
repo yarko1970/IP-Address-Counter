@@ -7,11 +7,11 @@ The purpose of the code in this repo is to solve the following problem:
 
 There is a simple text file containing IPv4 addresses, each line of the file represents an IPv4 address. The task is to build a program in Go language that calculates how many unique IP addresses are in this file. The task includes a sample large file (~114 GB) that needs to be properly handled by the program.
 
-The solution was tested on MacBook Pro 2021 with 10 processor cores.
-
 <b>2. Discussion</b>
 
 Starting from the beginning, I have used the suggested large file ip_addresses as well as another small file with 27 lines and 10 unique addresses as testing subjects - small file was used to test correctness, and large file - for performance.
+
+The solution was tested on MacBook Pro 2021 with 10 processor cores.
 
 Perhaps, the first reaction when you see such a task, is to check if there is a simple and straightforward, or "naive" solution, if for nothing else but for benchmarking purposes.
 The solution that suggests itself is to:
