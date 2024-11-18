@@ -10,7 +10,7 @@ There is a simple text file containing IPv4 addresses, each line of the file rep
 For testing of incrementally developed solution to the task, the following two sample files were used:
 
 - suggested large file "ip_addresses"
-- another small file with 27 lines and 10 unique addresses
+- another small file with 27 lines and 11 unique addresses
 
 Small file was used to test correctness, and large file - for performance. The solution was tested on MacBook Pro 2021 with 10 processor cores.
 
